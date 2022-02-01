@@ -17,9 +17,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'SirVer/ultisnips'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'mhinz/vim-startify'
-"Plug 'tpope/vim-obsession'
-"Plug 'dhruvasagar/vim-prosession'
 Plug 'thaerkh/vim-workspace'
 "Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
