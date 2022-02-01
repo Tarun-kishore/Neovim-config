@@ -15,7 +15,13 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'honza/vim-snippets'
 Plug 'ryanoasis/vim-devicons'
 Plug 'SirVer/ultisnips'
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'mhinz/vim-startify'
+"Plug 'tpope/vim-obsession'
+"Plug 'dhruvasagar/vim-prosession'
+Plug 'thaerkh/vim-workspace'
+"Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -29,6 +35,7 @@ call plug#end()
 inoremap jk <ESC>
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :CocCommand prettier.formatFile<CR>
+nmap <C-S-f> gg=G
 vmap <C-/> <plug>NERDCommenterToggle
 nmap <C-/> <plug>NERDCommenterToggle
 
@@ -44,7 +51,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 "Select all command
 nnoremap vie ggVG
 
- "automatic braces
+"automatic braces
 "inoremap { {}<Left>
 "inoremap {<CR> {<CR>}<Esc>O
 "inoremap {{ {
@@ -54,6 +61,7 @@ nnoremap vie ggVG
 "inoremap (( (
 "inoremap (} ()
 inoremap << << 
+inoremap <= <= 
 " open NERDTree automatically
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * NERDTree
@@ -63,15 +71,15 @@ let NERDTreeShowHidden = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeColorMapCustom = {
-    \ "Staged"    : "#0ee375",  
-    \ "Modified"  : "#d9bf91",  
-    \ "Renamed"   : "#51C9FC",  
-    \ "Untracked" : "#FCE77C",  
-    \ "Unmerged"  : "#FC51E6",  
-    \ "Dirty"     : "#FFBD61",  
-    \ "Clean"     : "#87939A",   
-    \ "Ignored"   : "#808080"   
-    \ } 
+\ "Staged"    : "#0ee375",  
+\ "Modified"  : "#d9bf91",  
+\ "Renamed"   : "#51C9FC",  
+\ "Untracked" : "#FCE77C",  
+\ "Unmerged"  : "#FC51E6",  
+\ "Dirty"     : "#FFBD61",  
+\ "Clean"     : "#87939A",   
+\ "Ignored"   : "#808080"   
+\ } 
 
 
 let g:NERDTreeIgnore = ['^node_modules$']
@@ -310,5 +318,18 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter * set nornu
 augroup END
 
-"terminal pasting
+"terminal keybindings
+tnoremap <C-Z> <C-\><C-N>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+"airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+
+"session management
+let g:workspace_autocreate = 1
+let g:workspace_create_new_tabs = 0  " enabled = 1 (default), disabled = 0
+nnoremap <C-s> :ToggleWorkspace<CR>
+let g:workspace_session_disable_on_args = 0
