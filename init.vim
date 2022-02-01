@@ -45,14 +45,14 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 nnoremap vie ggVG
 
  "automatic braces
-inoremap { {}<Left>
-inoremap {<CR> {<CR>}<Esc>O
-inoremap {{ {
-inoremap {} {}
-inoremap ( ()<Left>
-inoremap (<CR> (<CR>)<Esc>O
-inoremap (( (
-inoremap (} ()
+"inoremap { {}<Left>
+"inoremap {<CR> {<CR>}<Esc>O
+"inoremap {{ {
+"inoremap {} {}
+"inoremap ( ()<Left>
+"inoremap (<CR> (<CR>)<Esc>O
+"inoremap (( (
+"inoremap (} ()
 inoremap << << 
 " open NERDTree automatically
 "autocmd StdinReadPre * let s:std_in=1
@@ -309,3 +309,6 @@ augroup numbertoggle
     autocmd BufEnter,FocusGained,InsertLeave * set rnu
     autocmd BufLeave,FocusLost,InsertEnter * set nornu
 augroup END
+
+"terminal pasting
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
