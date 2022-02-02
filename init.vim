@@ -18,6 +18,9 @@ Plug 'SirVer/ultisnips'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'thaerkh/vim-workspace'
+Plug 'caenrique/nvim-toggle-terminal'
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
 "Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -330,3 +333,13 @@ let g:workspace_autocreate = 1
 let g:workspace_create_new_tabs = 0  " enabled = 1 (default), disabled = 0
 nnoremap <C-s> :ToggleWorkspace<CR>
 let g:workspace_session_disable_on_args = 0
+let g:workspace_autosave = 0
+
+
+"terminal toggle
+nnoremap <C-x> :ToggleTerminal<Enter>
+tnoremap <C-x> <C-\><C-n>:ToggleTerminal<Enter>
+
+"gitgutter
+"let g:airline#extensions#hunks#enabled=0
+"let g:airline#extensions#branch#enabled=1
